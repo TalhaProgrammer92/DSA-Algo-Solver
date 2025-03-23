@@ -1,5 +1,6 @@
 from Common.color import ANSI
-from Common.misc import line, input_in_range
+from Common.misc import line
+
 
 class Solution:
     @staticmethod
