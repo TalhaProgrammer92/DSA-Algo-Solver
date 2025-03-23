@@ -1,10 +1,18 @@
 from Common.color import ANSI
+from Common.misc import line, input_in_range
 
 class Solution:
     @staticmethod
     def traverse(array: list) -> None:
         """ Array traversal algorithm """
-        print()
+        print('',
+            ANSI.color_text(
+                line('=', 60),
+                'red',
+                None,
+                'bold'
+            ), sep='\n'
+        )
         for index, element in enumerate(array):
             a: str = ANSI.color_text(
                 f"The array contains '{element}'",
@@ -39,12 +47,30 @@ def main() -> None:
     array = []
 
     # Take input
-    size = int(input(
+    while True:
+        try:
+            size = int(input(
+                ANSI.color_text(
+                    'How many elements do you want to enter? ',
+                    'yellow',
+                )
+            ))
+            break
+        except Exception:
+            print(
+                ANSI.color_text(
+                    'Invalid input! Enter a number',
+                    'red'
+                )
+            )
+
+    # Separator
+    print(
         ANSI.color_text(
-            'How many elements do you want to enter? ',
-            'yellow',
+            line('-', 50),
+            'red'
         )
-    ))
+    )
 
     # Enter numbers/elements to array
     for count in range(size):
@@ -58,6 +84,16 @@ def main() -> None:
 
     # Solution
     Solution.traverse(array)
+
+    # Seperator
+    print(
+        ANSI.color_text(
+            line('=', 60),
+            'red',
+            None,
+            'bold'
+        )
+    )
 
     # Time Complexity
     print(
